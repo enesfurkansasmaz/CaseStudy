@@ -36,12 +36,6 @@ class OrderController extends Controller
                 foreach ($validated['items'] as $item) {
                     $product = Product::lockForUpdate()->find($item['product_id']);
 
-                    if (!$product) {
-                        throw ValidationException::withMessages([
-                            'product_id' => "{$item['product_id']} ID'li ürün bulunamadı.",
-                        ]);
-                    }
-
                     if ($product->stock < $item['quantity']) {
                         throw ValidationException::withMessages([
                             'stock' => "Ürün '{$product->name}' için yeterli stok yok. Mevcut stok: {$product->stock}",
