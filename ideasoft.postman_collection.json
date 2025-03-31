@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "127d1707-ff58-4d4c-b11b-8181e026c1fd",
+		"name": "Laravel API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43542385"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "List Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/products/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"products",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Yeni Ürün\",\n\"category\": 1,\n\"price\": 100,\n\"stock\": 50\n}"
+						},
+						"url": {
+							"raw": "http://localhost/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\": \"Güncellenmiş Ürün\",\n\"price\": 120\n}"
+						},
+						"url": {
+							"raw": "http://localhost/api/products/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"products",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/products/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"products",
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "List Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"customer_id\": 1,\n\"items\": [\n { \"product_id\": 100, \"quantity\": 2 },\n { \"product_id\": 102, \"quantity\": 6 }\n]\n}"
+						},
+						"url": {
+							"raw": "http://localhost/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/orders/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Discount Rules",
+			"item": [
+				{
+					"name": "List Discount Rules",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/discount-rules",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"discount-rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Discount Rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"10_PERCENT_OVER_500\",\n  \"type\": \"PERCENTAGE\",\n  \"parameters\": [\n    { \"param_key\": \"min_order_total\", \"param_value\": \"500\" },\n    { \"param_key\": \"percentage\", \"param_value\": \"10\" }\n  ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost/api/discount-rules",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"discount-rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Discount Rule",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/discount-rules/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"discount-rules",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Discount Rule",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"UPDATED_10_PERCENT_OVER_750\",\n  \"type\": \"PERCENTAGE\",\n  \"parameters\": [\n    { \"param_key\": \"min_order_total\", \"param_value\": \"750\" },\n    { \"param_key\": \"percentage\", \"param_value\": \"10\" }\n  ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost/api/discount-rules/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"discount-rules",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Discount Rule",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/api/discount-rules/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"discount-rules",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
